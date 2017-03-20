@@ -27,7 +27,7 @@ std::pair<size_t,size_t> match_kernel_haplo(size_t n, const allele_t *x, const a
 {
     size_t a = 0, b = 0;
     for (size_t i = 0; i < n; ++i) {
-        if (x[i] != 0 && y[i] != 0) {
+        if (x[i] && y[i]) {
             ++a;
             if (x[i] == y[i])
                 ++b;
@@ -41,7 +41,7 @@ std::pair<size_t,size_t> match_kernel_diplo(size_t n, const allele_t *x, const a
     size_t a = 0, b = 0;
     for (size_t i = 0; i < n; ++i) {
         size_t j1 = i*2, j2 = i*2+1;
-        if (x[j1] != 0 && x[j2] != 0 && y[j1] != 0 && y[j2] != 0) {
+        if (x[j1] && x[j2] && y[j1] && y[j2]) {
             a += 2;
             b += count_shared_allele(x[j1], x[j2], y[j1], y[j2]);
         }
