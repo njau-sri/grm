@@ -1,7 +1,7 @@
 #include <memory>
 #include <iostream>
 #include <exception>
-#include <appgrm.h>
+#include "appgrm.h"
 
 #ifdef _OPENMP
 extern "C" {
